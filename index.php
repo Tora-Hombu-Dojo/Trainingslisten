@@ -60,15 +60,15 @@ if(isset($_REQUEST['training']) && in_array($_REQUEST['training'], $training_nam
 
 // Header zur Auswahl von Jahr und Training anzeigen
 echo "<div>";
-echo "<a href=\"?year=$year&training=$training_name\">$year</a>";
-echo "<a href=\"?year=$next_year&training=$training_name\">$next_year</a>";
+echo "<a href=\"?year=$year&training=$training_name\">$year</a> ";
+echo "<a href=\"?year=$next_year&training=$training_name\">$next_year</a> ";
 foreach($training_names as $training_name) {
-    echo "<a href=\"?year=$year&training=$training_name\">$training_name</a>";
+    echo "<a href=\"?year=$year&training=$training_name\">$training_name</a> ";
 }
 echo "</div>";
 
 // Überschrift
-echo "<h1>Tora Hombu Dojo Trainingsliste<br>Karate Oberstufe $year</h1>";
+echo "<h1>Tora Hombu Dojo Trainingsliste<br>$selected_training $year</h1>";
 
 // Liste der Trainingstage erstellen
 // Beginn am 01.01.
