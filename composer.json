@@ -1,0 +1,7 @@
+{
+    "name": "tora-hombu-dojo/trainigslisten",
+    "description": "Script, das die Trainingslisten für das aktuelle und nächste Jahr zum Ausdrucken generiert.",
+    "type": "project",
+    "license": "GPL 3.0",
+    "require": {}
+}
