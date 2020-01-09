@@ -60,8 +60,8 @@ if(isset($_REQUEST['training']) && in_array($_REQUEST['training'], $training_nam
 
 // Header zur Auswahl von Jahr und Training anzeigen
 echo "<div>";
-echo "<a href=\"?year=$year&training=$training_name\">$year</a> ";
-echo "<a href=\"?year=$next_year&training=$training_name\">$next_year</a> ";
+echo "<a href=\"?year=$year&training=$selected_training\">$year</a> ";
+echo "<a href=\"?year=$next_year&training=$selected_training\">$next_year</a> ";
 foreach($training_names as $training_name) {
     echo "<a href=\"?year=$year&training=$training_name\">$training_name</a> ";
 }
