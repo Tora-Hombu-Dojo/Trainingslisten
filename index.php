@@ -38,10 +38,14 @@
 $number_of_trainees = 15;
 
 // Trainingspläne
-$training_names = ['Karate Oberstufe', 'Karate Unterstufe'];
+$training_names = ['Karate Oberstufe', 'Karate Unterstufe', 'Kickboxen'];
 
 // Wochentage in denen Training stattfindet (1=Montag, 2=Dienstag, usw.)
-$training_days = [1, 4];
+//$training_days = [1, 4];
+$training_days_for_training = array('Karate Oberstufe' => array(1, 4),
+                       'Karate Unterstufe' => array(1, 4), 
+					   'Kickboxen' => array(2,3));
+$training_days = [1,4];
 
 // Jahr ermitteln
 // Default ist das aktuelle Jahr
@@ -49,6 +53,7 @@ $year = date('Y');
 if(isset($_REQUEST['year']) && preg_match('/^[0-9]{4}$/', $_REQUEST['year'])) {
     $year = $_REQUEST['year'];
 }
+$prev_year = $year - 1;
 $next_year = $year + 1;
 
 // Training ermitteln
@@ -56,10 +61,12 @@ $next_year = $year + 1;
 $selected_training = $training_names[0];
 if(isset($_REQUEST['training']) && in_array($_REQUEST['training'], $training_names)) {
     $selected_training = $_REQUEST['training'];
+	$training_days = $training_days_for_training[$selected_training];
 }
 
 // Header zur Auswahl von Jahr und Training anzeigen
 echo "<div>";
+echo "<a href=\"?year=$prev_year&training=$selected_training\">$prev_year</a> ";
 echo "<a href=\"?year=$year&training=$selected_training\">$year</a> ";
 echo "<a href=\"?year=$next_year&training=$selected_training\">$next_year</a> ";
 foreach($training_names as $training_name) {
